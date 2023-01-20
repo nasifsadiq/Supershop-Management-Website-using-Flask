@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{% block title %}
+    Manage Admin
+{% endblock %}
+
+{% block content %}
+  <table class="table table-hover table-dark" >
+      <thead>
+          <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">User ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Options</th>
+
+
+      </thead>
+      <tbody>
+          <!-- Your rows inside the table HERE: -->
+
+
+          {% for admin in adminDetails %}
+            <tr>
+              <td>{{admin[0]}}</td>
+              <td>{{admin[1]}}</td>
+              <td>{{admin[2]}}</td>
+              <td>
+                <form method ="POST" action="">
+                  <button class="btn btn-outline btn-info" type="submit" name="remove" value='{{admin[0]}}'> Remove </button>
+                </form>
+
+              </td>
+            </tr>
+          {% endfor %}
+
+      </tbody>
+    </table>
+{% endblock %}

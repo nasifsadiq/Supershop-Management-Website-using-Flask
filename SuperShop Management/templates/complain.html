@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{% block title %}
+    Manage Complains
+{% endblock %}
+
+{% block content %}
+  <table class="table table-hover table-dark" >
+      <thead>
+          <tr>
+            <!-- Your Columns HERE -->
+            <th scope="col">Issue No</th>
+            <th scope="col">Feedback</th>
+            <th scope="col">Replies</th>
+            <th scope="col">Edit Reply</th>
+            <th scope="col"> Option </th>
+      </thead>
+      <tbody>
+          <!-- Your rows inside the table HERE: -->
+          {% for complain in complainDetails %}
+            <tr>
+              <td>{{complain[0]}}</td>
+              <td>{{complain[1]}}</td>
+              <td>{{complain[2]}}</td>
+              <form method ="POST" action="">
+                  <td> <input type="text" name="reply" /></td>
+                  <td>
+                      <button class="btn btn-outline btn-info" type="submit" name="submit" value='{{complain[0]}}'> Submit </button>
+
+                  </td>
+              </form>
+            </tr>
+          {% endfor %}
+
+      </tbody>
+    </table>
+{% endblock %}
